@@ -1,7 +1,7 @@
 class TheWallController < ApplicationController
-      def new
+    def new
     end
-  
+
     def create
       # returning_user = User.find_by(user_params)
       # if returning_user
@@ -32,10 +32,9 @@ class TheWallController < ApplicationController
 
     def logout
     end
-  
+
     private
     def user_params
       params.require(:user).permit(:username)
     end
-  end
 end

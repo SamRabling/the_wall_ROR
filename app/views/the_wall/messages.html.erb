@@ -1,2 +1,20 @@
-<h1>TheWall#messages</h1>
-<p>Find me in app/views/the_wall/messages.html.erb</p>
+<div class="header">
+    <h2>CodingDojo Wall</h2>
+    <h2>Hello <%= @user.try(:username) %>!</h2>
+    <h2><a>Log Out</a></h2>
+</div>
+
+<div class="wrapper">
+    <h1>Post a Message</h1>
+    <% if flash[:errors] %>
+        <% flash [:errors].each do |error| %>
+            <h4><%= error %> </h4>
+        <% end %>
+    <% end %>
+
+    <form action = "message" method = "post">
+      <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+      <input type = "text" name = "message" id = "message">  
+      <input type = "submit" value = "Post a Message">
+    </form>
+</div>

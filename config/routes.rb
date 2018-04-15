@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'the_wall/new'
 
-  get 'the_wall/messages'
+  get 'messages' => 'the_wall#messages'
 
   post 'the_wall/create' => 'the_wall#create'
 
