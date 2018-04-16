@@ -1,0 +1,18 @@
+<div class="message">
+    <% if flash[:errors] %>
+        <% flash [:errors].each do |error| %>
+            <h4><%= error %> </h4>
+        <% end %>
+    <% end %>
+
+    <form action = "/new_messages" method = "post">
+      <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+      <input type = "text" name = "message[message]" id = "message">  
+      <input type = "submit" value = "Post a Message">
+    </form>
+
+     <% @messages.each do |message| %>
+            <p><%=@message.message%></p>
+    <% end %>
+            
+</div>

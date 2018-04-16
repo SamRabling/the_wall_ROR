@@ -6,7 +6,7 @@ class TheWallController < ApplicationController
     def create
       @returning_user = User.find_by(user_params)
       if @returning_user
-        session[:username] = @user.username
+        session[:id] = @user.id
         redirect_to messages_path
       else
           @user = User.new(user_params)
@@ -20,19 +20,7 @@ class TheWallController < ApplicationController
       end
     end
 
-    def messages
-      @user = User.find(session[:id])
-      @messages = Message.includes(:comments).all
-    end
-
-    def new_messages
-    end
-
-    def comments
-    end
-
-    def new_comments
-    end
+    
 
     def logout
       reset_session
@@ -42,9 +30,5 @@ class TheWallController < ApplicationController
     private
     def user_params
       params.require(:user).permit(:username)
-    end
-
-    def message_params
-      params.require(:message).permit(:message)
     end
 end

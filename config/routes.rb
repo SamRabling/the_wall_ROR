@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'messages/index'
+
+  get 'messages/new'
+
   get 'the_wall/new'
 
   get 'messages' => 'the_wall#messages'
