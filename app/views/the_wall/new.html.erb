@@ -1,7 +1,7 @@
 <h1> Sign In </h1>
-<% if flash[:errors] %>
-    <% flash [:errors].each do |error| %>
-        <h4><%= error %> </h4>
+<% if flash[:error] %>
+    <% flash [:error].each do |err| %>
+        <h4><%= err %> </h4>
     <% end %>
 <% end %>
 

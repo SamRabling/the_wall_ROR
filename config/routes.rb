@@ -5,6 +5,11 @@ Rails.application.routes.draw do
 
   post 'the_wall/create' => 'the_wall#create'
 
+  post 'new_messages' => 'the_wall#new_messages'
+
+  post 'new_comments' => 'the_wall#new_comments'
+
+  post 'logout' => 'the_wall#logout'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
