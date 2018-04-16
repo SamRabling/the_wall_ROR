@@ -1,3 +1,9 @@
+<div class="header">
+    <h2>CodingDojo Wall</h2>
+    <h2>Hello <%= @user.username %>!</h2>
+    <h2><a href="/logout">Log Out</a></h2>
+</div>
+
 <div class="message">
     <% if flash[:errors] %>
         <% flash [:errors].each do |error| %>
@@ -12,7 +18,13 @@
     </form>
 
      <% @messages.each do |message| %>
+            <p><%=message.user.username%>, <%=message.created_at%></p>
             <p><%=message.message%></p>
+                <form action = "messages/new" method = "post">
+                <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
+                <input type = "text" name = "comment[comment]" id = "message">  
+                <input type = "submit" value = "Post a Message">
+                </form>
     <% end %>
             
 </div>

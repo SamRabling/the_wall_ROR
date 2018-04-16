@@ -4,11 +4,11 @@ class TheWallController < ApplicationController
     end
 
     def create
-      # @returning_user = User.find_by(user_params)
-      # if @returning_user
-      #   session[:user_id] = @user.id
-      #   redirect_to messages_path
-      # else
+      @returning_user = User.find_by(user_params)
+      if @returning_user
+        session[:user_id] = @user.id
+        redirect_to messages_path
+      else
           @user = User.new(user_params)
           if @user.save
             session[:user_id] = @user.id
