@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/new'
+
   get 'messages/index'
 
   get 'messages/new'

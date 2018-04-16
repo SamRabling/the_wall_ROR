@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
   def messages
       @user = User.find(session[:id])
-      @messages = Message.all
+      @messages = Message.includes(:comments)all
       @errors = flash[:errors]
     end
 
@@ -18,18 +18,8 @@ class MessagesController < ApplicationController
       end 
     end
 
-    def comments
-    end
-
-    def new_comments
-    end
-
     private
     def message_params
       params.require(:message).permit(:message)
-    end
-
-    def comment_params
-      params.require(:comment).permit(:comment)
     end
 end
