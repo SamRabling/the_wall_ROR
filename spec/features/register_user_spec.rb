@@ -17,7 +17,7 @@ feature "New user " do
 
     scenario "submits a username <= 5 characters" do
         visit the_wall_new_path
-        fill_in "user[username]", with: "too_short"
+        fill_in "user[username]", with: "no"
         click_button "Log In"
         expect(page). to have_content "username cannot have a username shorter than 6 characters" 
         expect(current_path).to eq(the_wall_new_path)

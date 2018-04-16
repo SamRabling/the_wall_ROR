@@ -1,5 +1,6 @@
 class TheWallController < ApplicationController
     def new
+      @errors = flash[:errors]
     end
 
     def create
@@ -10,15 +11,16 @@ class TheWallController < ApplicationController
       # else
           @user = User.new(user_params)
           if @user.save
-            session[:user_id] = @user.id
+            session[:id] = @user.id
             redirect_to messages_path
           else
-            flash[:errors] = @user.errors.full_messages
-            redirect_to new_user_path
+            flash[:errors]= @user.errors.full_messages
+            redirect_to the_wall_new_path
           end
     end
 
-    def show_messages
+    def messages
+      @user = User.find(session[:id])
     end
 
     def new_messages

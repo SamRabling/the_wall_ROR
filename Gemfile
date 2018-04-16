@@ -50,3 +50,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'capybara'
 end
+
+#for console
+
+gem 'hirb'
