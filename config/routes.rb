@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   get 'the_wall/new'
 
-  get 'messages' => 'messages#index' #this is for displaying messages
-
   post 'the_wall/create' => 'the_wall#create' ##this is for creating users
 
-  post 'new_message' => 'messages#new_messages'
+  get '/messages' => 'messages#index' #this is for displaying messages
+
+  post 'messages/new' => 'messages#new_messages'
 
   post 'messages/:id' => 'comment#new_comments'
 
-  get 'logout' => 'the_wall#logout'
+  post 'logout' => 'the_wall#logout'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

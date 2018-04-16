@@ -5,14 +5,14 @@
         <% end %>
     <% end %>
 
-    <form action = "new_message" method = "post">
+    <form action = "messages/new" method = "post">
       <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
       <input type = "text" name = "message[message]" id = "message">  
       <input type = "submit" value = "Post a Message">
     </form>
 
      <% @messages.each do |message| %>
-            <p><%=@message.message%></p>
+            <p><%=message.message%></p>
     <% end %>
             
 </div>
