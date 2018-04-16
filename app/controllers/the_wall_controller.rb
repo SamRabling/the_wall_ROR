@@ -4,27 +4,24 @@ class TheWallController < ApplicationController
     end
 
     def create
-      @returning_user = User.find_by(user_params)
-      if @returning_user
-        session[:id] = @user.id
-        redirect_to messages_path
-      else
+      # @returning_user = User.find_by(user_params)
+      # if @returning_user
+      #   session[:user_id] = @user.id
+      #   redirect_to messages_path
+      # else
           @user = User.new(user_params)
           if @user.save
-            session[:id] = @user.id
+            session[:user_id] = @user.id
             redirect_to messages_path
           else
             flash[:error]= @user.errors.full_messages
             redirect_to the_wall_new_path
           end
-      end
     end
-
-    
 
     def logout
       reset_session
-      redirect_to users_new_path
+      redirect_to the_wall_new_path
     end
 
     private

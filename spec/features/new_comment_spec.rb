@@ -4,6 +4,8 @@ feature "user submits new comment" do
     visit the_wall_new_path
     fill_in "user[username]", with: "FryDelivers"
     click_button "Log In"
+    fill_in "message[message]", with: "this is my new comment wiiiiii"
+    click_button "Post a message"
   end
   scenario " and it's successfully created" do
     fill_in "comment[comment]", with: "this is my new comment wiiiiii"

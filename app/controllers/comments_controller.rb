@@ -1,13 +1,14 @@
 class CommentsController < ApplicationController
-  def new
-    @comment = Message.new(message_params)
-    @comment.user = User.find(session[:id])
-    if @message.save
-      puts "*******  message was valid   *********"
+  def new_comments
+    @comment = Comment.new(comment_params)
+    @comment.message = Message.find(params[:id])
+    @comment.user = User.find(session[:user_id])
+    if @comment.save
+      puts "*******  comment was valid   *********"
       redirect_to messages_path
     else
-      flash[:error]= @message.errors.full_messages
-      puts "######### message was not valid #########"
+      flash[:error]= comment.errors.full_messages
+      puts "######### comment was not valid #########"
       redirect_to messages_path
     end 
   end

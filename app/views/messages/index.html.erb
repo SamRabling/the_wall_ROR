@@ -5,7 +5,7 @@
         <% end %>
     <% end %>
 
-    <form action = "/new_messages" method = "post">
+    <form action = "new_message" method = "post">
       <input type = 'hidden' name = "authenticity_token" value = "<%=form_authenticity_token%>">
       <input type = "text" name = "message[message]" id = "message">  
       <input type = "submit" value = "Post a Message">
